@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateEnfantsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('enfants', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->string('nom');
+            $table->string('prenom');
+            $table->date('dateNaissance');
+            $table->string('niveau');
+
+            $table->integer('personvrai_id')->unsigned();
+            $table->foreign('personvrai_id')->references('id')->on('personvrais');
+          
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('enfants');
+    }
+}
