@@ -1,24 +1,6 @@
 @extends('layouts.admin')
 
 @section('page')
-<!--
-      <header class="section-header">
-        <div class="tbl">
-          <div class="tbl-row">
-            <div class="tbl-cell">
-              
-               <h2 style="padding-left:40px;; color:green">Doctors Admin Panel</h2>
-              <ol class="breadcrumb breadcrumb-simple">
-                <li><a href="{{ url('admin/doctors')}}">View All Doctors</a></li>
-               
-                <li><a href="{{url('admin/index')}}">Return to Dashbroad</a></li>
-                <li class="active">Create</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </header>
-    -->
 
       <div class="box-typical box-typical-padding">
         
@@ -26,7 +8,7 @@
         <h5 class="m-t-lg with-border">pasteurs Inputs</h5>
 
                   {!!Html::ul($errors->all())!!}         
-       <!-- <form  <form method="post" action="patient" enctype="multipart/form-data"> -->
+    
         {!! Form::open(array('url' => 'pasteurs', 'role'=>'form','files'=> true)) !!}
 
 
@@ -96,11 +78,11 @@
 
 
        <div class="box-footer">
-                     <!--<button type="submit" class="btn btn-primary">Submit</button> -->
+                     
 
                     {!! Form::submit('Create Patient!', array('class'=>'btn btn-primary')) !!}
                   </div>
-                <!--</form> -->
+                
                 {!! Form::close() !!}
 </div>
 

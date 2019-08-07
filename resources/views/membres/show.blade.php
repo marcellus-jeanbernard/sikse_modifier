@@ -53,7 +53,7 @@
               
                 <tr>
                     <td>Ccpc:</td>
-                    <td>{{$membre->ccpc->name}}</td>
+                    <td>{{$membre->ccpccommune->name}}</td>
                   </tr>
  
 
@@ -176,7 +176,7 @@
           
                 <div class="actions">
 
-                  <a href="{{ url('admin/membres')}}" class="btn btn-primary"> <span class="glyphicon glyphicon-fast-backward"></span></a>
+                  <a href="{{ url('affichermembre')}}" class="btn btn-primary"> <span class="glyphicon glyphicon-fast-backward"></span></a>
                   <!--<button class="btn btn-rounded btn-inline">Send</button> -->
 <!--                   <button class="btn btn-inline btn-secondary btn-rounded">Print</button> -->
                 </div>

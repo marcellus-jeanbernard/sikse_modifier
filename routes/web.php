@@ -1,11 +1,9 @@
 <?php
 use App\Ccpccommune;
 
+
 // Route::get('/ajax-ccpccom', function(){
  
-//   $dep_id = Input::get('dep_id');
-//   $ccpccommunes = Ccpccommune::where('departement_id', '=', $dep_id)->get();
-//   return Response::json($ccpccommunes);
 
 // });
 
@@ -20,19 +18,14 @@ use App\Ccpccommune;
 
 /***** admin *********/
 
-Route::group(['middleware' => ['web']], function(){
+Route::group(['middleware' => ['auth', 'role']], function(){
 
 // Route::get('admin/index',array('as'=>'admin','uses'=>'HomeController@admin'));
 
-Route::get('admin/index', [
-    'uses' =>'HomeController@admin',
+Route::get('admin/index', [ 'uses' =>'HomeController@admin',
     'as' =>'admin',
     'middleware' =>'auth'
 ]);
-
-
-
-
 
 });
 
@@ -62,6 +55,7 @@ Route::get('admin/projetsepts','ProjetseptsController@allprojetsepts');
 
 Route::resource('membres', 'MembresController');
 Route::get('admin/membres','MembresController@allmembres');
+// Route::get('affichermembre','MembresController@affichermembre');
 /**************** fin **********/
 
 
@@ -77,6 +71,20 @@ Route::get('admin/projets','ProjetsController@allprojets');
 /*****************  ccpc admin *********************/
 Route::resource('ccpcs', 'CcpcsController');
 Route::get('admin/ccpcs','CcpcsController@allccpcs');
+/***************** fin ******************************/
+
+
+
+/*****************  ccpc admin *********************/
+Route::resource('ccpccommunes', 'CcpccommuneController');
+Route::get('admin/ccpccommunes','CcpccommuneController@allccpccommunes');
+/***************** fin ******************************/
+
+
+
+/*****************  ccpc admin *********************/
+Route::resource('ccpccommuneprofils', 'CcpccommuneprofilController');
+Route::get('admin/ccpccommuneprofils','CcpccommuneprofilController@allccpccommuneprofils');
 /***************** fin ******************************/
 
 
@@ -122,6 +130,11 @@ Route::get('admin/sliders','SlidersController@allsliders');
 Route::resource('departments', 'DepartmentsController');
 
 Route::get('admin/departments','DepartmentsController@alldepartments');
+
+
+Route::resource('formations', 'FormationController');
+
+Route::get('admin/formations','FormationController@allformations');
 
 
 /***** admin *********/
@@ -228,4 +241,35 @@ Route::get('frontpersonvrais','FrontpersonvraisController@show');
 
 Route::get('creation','PersonvraisController@creation');
 
-Route::get('ajax-ccpccom','HomeController@form');
+ Route::get('ajax-ccpccom','HomeController@showForm');
+Route::get('ajax-ccpccom/{id}','HomeController@form');
+
+Route::get('historiques','HomeController@historiques');
+Route::get('objectif','HomeController@objectif');
+Route::get('equipe','HomeController@equipe');
+
+Route::get('formation','HomeController@formation');
+Route::get('sondage','HomeController@sondage');
+Route::get('etudes','HomeController@etudes');
+Route::get('executionprojet','HomeController@executionprojet');
+Route::get('appui','HomeController@appui');
+
+
+
+ Route::get('ajax-findadresse','HomeController@findadresse');
+ 
+Route::get('ajax-findemail','HomeController@findemail');
+
+Route::get('ajax-findtelephone','HomeController@findtelephone');
+
+
+Route::get('data','HomeController@data');
+
+//Route::get('affichermembre/{slug}','HomeController@affichermembre');
+
+Route::get('/ccpccommune/{id}',[
+      'uses' => 'HomeController@affichermembre',
+      'as' => 'ccpccommune.affichermembre'
+  ]);
+
+

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+
+use App\Ccpccommune;
 use App\Membre;
 use DB;
 use Charts;
@@ -164,7 +166,12 @@ public function inscription() {
 
 
 
-       public function profil($id){ 
+       public function profil($id){
+         
+        //  $ccpccommuneprofils = Ccpccommune::where('user_id','=', Auth::user()->id);
+        // $ccpccommuneprofils = Ccpccommune::orderBy('created_at','desc')->paginate(5);
+
+    $ccpccommuneprofils = Ccpccommune::where('user_id','=', Auth::user()->id)->orderBy('created_at','desc')->take(5)->get();
 
         $membres = Membre::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))
                     ->get();
@@ -184,14 +191,14 @@ public function inscription() {
                                  }
  
   // return View::make('users.profil');
-   return view('users.profil', compact('chart'));
+   return view('users.profil', compact('chart','ccpccommuneprofils'));
    
 }
 
 
                    public function logout(){
 
-$user=User::find(Auth::user()->id); 
+           $user=User::find(Auth::user()->id); 
 
 $user->last_login = date('Y-m-d H:i:s');
 $user->save();   

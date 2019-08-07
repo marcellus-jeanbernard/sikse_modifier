@@ -128,7 +128,7 @@
 	                    <div class="site-header-collapsed-in">
 	                        
 	                        <div class="dropdown dropdown-typical">
-	                            <br>
+2	                            <br>
 
                                  <h4><a href="{{url('admin/index')}}"> Administration</a></h4>
 
@@ -170,7 +170,7 @@
 	            </a>
 
 	            <li>
-	            	<a href="{{url('admin/departments')}}"><!-- Departements --></a>
+	            	<a href="{{url('admin/departments')}}">Departements</a>
 	            </li>
 	        </li>
             
@@ -184,9 +184,17 @@
 
 
             <li class="blue">
-	            <a href="{{url('admin/ccpcs') }} " >
+	            <a href="{{url('admin/ccpccommunes') }} " >
 	                <i class="font-icon font-icon-users"></i>
 	                <span class="lbl"> Ccpc  </span>
+	            </a>
+	        </li>
+
+
+	         <li class="blue">
+	            <a href="{{url('admin/formations') }} " >
+	                <i class="font-icon font-icon-users"></i>
+	                <span class="lbl"> formations  </span>
 	            </a>
 	        </li>
 

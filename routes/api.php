@@ -32,3 +32,22 @@ Route::resource('users', 'UsersController');
  Route::get('signup',array('as'=>'signup','uses'=>'UsersController@signup'));
   Route::post('inscription',array('as'=>'inscription','uses'=>'UsersController@inscription'));
 
+// <?php 
+
+Route::post('attendance/time-in', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeIn')
+    ->name('api.attendance.time-in');
+
+Route::post('attendance/time-out', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeOut')
+    ->name('api.attendance.time-out');
+
+Route::post('attendance/time-in', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeIn')
+    ->name('api.attendance.time-in');
+
+Route::post('attendance/time-out', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeOut')
+    ->name('api.attendance.time-out');
+
+Route::post('attendance/time-in', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeIn')
+    ->name('api.attendance.time-in');
+
+Route::post('attendance/time-out', '\CleaniqueCoders\Http\Controllers\Api\AttendanceController@timeOut')
+    ->name('api.attendance.time-out');

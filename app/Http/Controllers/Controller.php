@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use View;
 use App\Department; 
+use App\Ccpc;
 
 class Controller extends BaseController
 {
@@ -20,5 +21,15 @@ class Controller extends BaseController
 
      // 	  });
      // }
+
+
+
+//     public function __construct() {
+// $this->middleware(function() {
+//   View::share('ccnav', Ccpc::all());
+// });
+// }
+
+
 
 }

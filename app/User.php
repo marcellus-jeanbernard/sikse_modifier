@@ -35,4 +35,9 @@ protected $hidden = array('password', 'remember_token');
         return $this->hasOne('App\VerifyUser');
     }
 
+    public function role() {
+        return $this->role;
+    }
+
 }
+

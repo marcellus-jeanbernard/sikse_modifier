@@ -1,10 +1,12 @@
 <?php
 
 namespace App;
-
+use Formation;
+use App\Ccpccommune;
 use App\Secteuractivite;
 use App\Ccpc;
 use App\Fonction;
+use App\Membre;
 // use App\Occupationactuelle;
 use Illuminate\Support\Str;
 
@@ -20,34 +22,35 @@ class Membre extends Model
         'prenom',
         'sexe',
         'email',
+        'nif',
+        'cin',
+        'profession',
+        'employer',
         'address',
-        'ccpc_id',
+        'ccpccommune_id',
         'fonction_id',
         'secteuractivite_id',
         
 
         'phone',
-        'gap',
-        'notion_de_base',
-        'pretest_nb',
-        'moyenne_pre',
-
-        'post_test_nb',
-
-        'moyenne_pos',
-
-        'performance',
-
-        'pretest_acc',
-
-        'moyenne_pretest_acc',
-
-        'post_test_acc'
+        'date_entrer',
+        'image'
 
     ];
      
-  public function ccpc(){ 
-           return $this->belongsTo('App\Ccpc');           
+
+          public function formations() 
+        {
+            return $this->hasMany('App\Formation');
+        }
+
+  // public function ccpc(){ 
+  //          return $this->belongsTo('App\Ccpc');           
+  //                           }
+
+
+  public function ccpccommune(){ 
+           return $this->belongsTo('App\Ccpccommune');           
                             }
 
 

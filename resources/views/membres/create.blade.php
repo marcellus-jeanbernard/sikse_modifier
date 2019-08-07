@@ -1,24 +1,7 @@
 @extends('layouts.admin')
 
 @section('page')
-<!--
-      <header class="section-header">
-        <div class="tbl">
-          <div class="tbl-row">
-            <div class="tbl-cell">
-              
-               <h2 style="padding-left:40px;; color:green">Doctors Admin Panel</h2>
-              <ol class="breadcrumb breadcrumb-simple">
-                <li><a href="{{ url('admin/doctors')}}">View All Doctors</a></li>
-               
-                <li><a href="{{url('admin/index')}}">Return to Dashbroad</a></li>
-                <li class="active">Create</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </header>
-    -->
+
 
       <div class="box-typical box-typical-padding">
         
@@ -32,13 +15,13 @@
 
                  
           
-        <!--   
+          
      <div class="form-group row">
             <label class="col-sm-2 form-control-label">Code</label>
             <div class="col-sm-10">
               <p class="form-control-static"><input type="text" class="form-control"   name="code" placeholder=" Votre Code ici"></p>
             </div>
-  </div> -->
+  </div>
 
 
   <div class="form-group row">
@@ -76,6 +59,38 @@
               <p class="form-control-static"><input type="email" class="form-control" name="email" placeholder="your email here"></p>
             </div>
           </div>
+
+     <div class="form-group row">
+            <label class="col-sm-2 form-control-label">NIF</label>
+            <div class="col-sm-10">
+              <p class="form-control-static"><input type="text" class="form-control"   name="nif" placeholder=" Votre Nif ici"></p>
+            </div>
+  </div>
+<div class="form-group row">
+            <label class="col-sm-2 form-control-label">CIN</label>
+            <div class="col-sm-10">
+              <p class="form-control-static"><input type="text" class="form-control"   name="cin" placeholder=" Votre cin ici"></p>
+            </div>
+  </div>
+<div class="form-group row">
+            <label class="col-sm-2 form-control-label">Profession</label>
+            <div class="col-sm-10">
+              <p class="form-control-static"><input type="text" class="form-control"   name="profession" placeholder=" Votre Profession ici"></p>
+            </div>
+  </div>
+
+
+
+  <div class="form-group row">
+            <label class="col-sm-2 form-control-label">Employer</label>
+            <div class="col-sm-10">
+              
+                        <input type="radio" name="employer" value="male" checked> oui
+                        <input type="radio" name="employer" value="female"> non
+                        
+            </div>
+          </div>
+     
 <div class="form-group row">
             <label for="exampleSelect" class="col-sm-2 form-control-label">Address</label>
             <div class="col-sm-10">
@@ -87,9 +102,9 @@
 
 <p>
 
- {!! Form::label('ccpc_id','Ccpc') !!}
+ {!! Form::label('ccpccommune_id','Ccpccommune') !!}
   
- {!! Form::select('ccpc_id', $ccpcs) !!}
+ {!! Form::select('ccpccommune_id', $ccpccommunes) !!}
 </p>
 
 
@@ -120,97 +135,27 @@
 
 
 
-  <div class="form-group row">
-            <label class="col-sm-2 form-control-label">Gap</label>
-            <div class="col-sm-10">
-              
-                        <input type="radio" name="gap" value="male" checked> oui
-                        <input type="radio" name="gap" value="female"> non
 
+      <div class="form-group row">
+            <label class="col-sm-2 form-control-label">Add your photo</label>
+            <div class="col-sm-10">
+              {!! Form::file('image', Input::old('image'),  array('placeholder'=>'image', 'class'=>'form-control', 'id'=>'exampleInputEmail1')) !!}
             </div>
           </div>
 
 
 
 
-  <div class="form-group row">
-            <label class="col-sm-2 form-control-label">Notion de Base</label>
-            <div class="col-sm-10">
-              
-                        <input type="radio" name="notion_de_base" value="male" checked> OUi
-                        <input type="radio" name="notion_de_base" value="female"> Non
-                        
-            </div>
-          </div>
-         
-
-<div class="form-group row">
-            <label class="col-sm-2 form-control-label">Pretext Notion de Base</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="phone" placeholder="your telephone here"></p>
-            </div>
-          </div>
 
 
 
-<div class="form-group row">
-            <label class="col-sm-2 form-control-label">Pretext Notion de Base</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="pretest_nb" placeholder="your telephone here"></p>
-            </div>
-          </div>
 
 
-<div class="form-group row">
-            <label class="col-sm-2 form-control-label">Moyenne Pre</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="moyenne_pre" placeholder="Put your pretext number here"></p>
-            </div>
-          </div>
 
 
-<div class="form-group row">
-            <label class="col-sm-2 form-control-label">Post test Notion de Base</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="post_test_nb" placeholder="your telephone here"></p>
-            </div>
-          </div>
 
 
-<div class="form-group row">
-            <label class="col-sm-2 form-control-label">Moyenne Post test</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="moyenne_pos" placeholder="your telephone here"></p>
-            </div>
-          </div>
 
-          <div class="form-group row">
-            <label class="col-sm-2 form-control-label">Performance</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="performance" placeholder="your telephone here"></p>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 form-control-label">Pre test Acc</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="pretest_acc" placeholder="your telephone here"></p>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-sm-2 form-control-label">Moyenne Pre test Acc</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="moyenne_pretest_acc" placeholder="your telephone here"></p>
-            </div>
-          </div>
-
-                    <div class="form-group row">
-            <label class="col-sm-2 form-control-label"> Post test Acc</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"><input type="text" class="form-control"   name="post_test_acc" placeholder="your telephone here"></p>
-            </div>
-          </div>
 
                     
 

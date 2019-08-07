@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 use View;
 use App\Fonction;
-use App\Ccpc;
+use App\Ccpccommune;
 use App\Secteuractivite;
 
 
@@ -29,6 +29,9 @@ use App\Http\Requests\MembreFormRequest;
 
 class MembresController extends Controller
 {
+
+
+
 
 
   
@@ -65,9 +68,9 @@ public function __construct() {
        
 
 
-             $ccpcs=array();
-     foreach( Ccpc::all() as $ccpc){
-     $ccpcs[$ccpc->id]=$ccpc->name;
+             $ccpccommunes=array();
+     foreach( Ccpccommune::all() as $ccpccommune){
+     $ccpccommunes[$ccpccommune->id]=$ccpccommune->name;
          }
 
  $fonctions=array();
@@ -81,7 +84,7 @@ public function __construct() {
          }
 
           
-           return view('membres.create', compact('ccpcs','fonctions','secteuractivites'));
+           return view('membres.create', compact('ccpccommunes','fonctions','secteuractivites'));
 
 
 
@@ -114,45 +117,44 @@ public function __construct() {
         // dd($this->generateCode('Jean', 'Bernard'));
 
             $membre = new Membre(array(
-      //'code' => $request->get('__toString '),
-      'code' => $this->generateCode($request->get('nom'), $request->get('prenom')),
       
+      //'code' => $this->generateCode($request->get('nom'), $request->get('prenom')),
+      'code' =>$request->get('code'),
       'nom' => $request->get('nom'),
       'prenom' => $request->get('prenom'),
       'sexe' => $request->get('sexe'),
       'email' => $request->get('email'),
-      'adresse' => $request->get('address'),
-      'ccpc_id' => $request->get('ccpc_id'),
+      'nif' => $request->get('nif'),
+      'cin' => $request->get('cin'),
+      'profession' => $request->get('profession'),
+      'employer' => $request->get('employer'),
+      'address' => $request->get('address'),
+
+      'ccpccommune_id' => $request->get('ccpccommune_id'),
       'fonction_id' => $request->get('fonction_id'),
       'secteuractivite_id' => $request->get('secteuractivite_id'),
       // 'email' => $request->get('email'),
       'phone' => $request->get('phone'),
-      'gap' => $request->get('gap'),
-      'notion_de_base' => $request->get('notion_de_base'),
-      'pretest_nb' => $request->get('pretest_nb'),
-
-      'moyenne_pre' => $request->get('moyenne_pre'),
-
-      'post_test_nb' => $request->get('post_test_nb'),
-
-      'moyenne_pos' => $request->get('moyenne_pos'),
-      'performance' => $request->get('performance'),
-
-      'pretest_acc' => $request->get('pretest_acc'),
-      'moyenne_pretest_acc' => $request->get('moyenne_pretest_acc'),
-      'post_test_acc' => $request->get('post_test_acc')
+      'date_entrer' => $request->get('date_entrer')
       
     ));
+
+           // commencement 
+
+   $image=Input::file('image');
+          
+
+    $filename  = time() . '.' . $image->getClientOriginalExtension();
+$path = public_path('images/catalog/membres/' . $filename);
+Image::make($image->getRealPath())->resize(249, 200)->save($path);
+
+
+    $membre->image = '/images/catalog/membres/'.$filename;
+       
 
 
       $membre->save();
 
-            // return Redirect::route('admin/patients', 
-        //array($patient->id))->with('message', 'patienwt added!');        
-           //Session::flash('message', 'Successfully created patient!');
-            // return view('membres.essai' ,compact('personvrai','coordination','commission','secteuractivite','occupationactuelle'));
-
-            // return Redirect::to('membres');
              return Redirect::to('admin/membres');
 
 
@@ -183,9 +185,9 @@ public function __construct() {
      */
  public function edit($id)
 {
-  $ccpcs=array();
-     foreach( Ccpc::all() as $ccpc){
-     $ccpcs[$ccpc->id]=$ccpc->name;
+  $ccpccommunes=array();
+     foreach( Ccpccommune::all() as $ccpccommune){
+     $ccpccommunes[$ccpccommune->id]=$ccpccommune->name;
          }
 
          $fonctions=array();
@@ -237,7 +239,10 @@ public function __construct() {
 
   $membres =Membre::orderBy('created_at','desc')->paginate(5);
        
-     $ccpcs = Ccpc::all();
+     $ccpccommunes = Ccpccommune::all();
+       
+       
+
      $fonctions = Fonction::all();  
      $secteuractivites = Secteuractivite::all();  
      
@@ -246,7 +251,7 @@ public function __construct() {
 
     return View::make('membres.allmembres')
               ->with('membres',$membres )
-              ->with('ccpcs',$ccpcs)
+              ->with('ccpccommunes',$ccpccommunes)
               ->with('fonctions',$fonctions)
               ->with('secteuractivites',$secteuractivites);
               
@@ -256,6 +261,23 @@ public function __construct() {
              
               
      }
+
+     // public function affichermembre(){
+
+     //              $membre = Membre::find($id);
+     //    return view('membres.affichermembre', compact('membre'));
+                
+     //                                 }
+
+
+      public function data(){
+      
+     // $membres =Membre::orderBy('created_at','desc')->paginate(15);
+          $membres =Membre::orderBy('created_at','desc')->paginate(2);
+  
+         return view('membres.data', compact('membres'));
+
+}                                 
 
 
 }

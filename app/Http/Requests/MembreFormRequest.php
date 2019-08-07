@@ -32,26 +32,19 @@ class MembreFormRequest extends FormRequest
         'sexe'=> 'required',
         
         'email'=> 'required',
+        'nif'=> 'required',
+        'cin'=> 'required',
+        'profession'=> 'required',
+        'employer'=> 'required',
+
         'address'=> 'required',
-        'ccpc_id' =>'required',
+        'ccpccommune_id' =>'required',
 
         'fonction_id'=> 'required',
         'secteuractivite_id'=> 'required',
         'phone'=> 'required',
-        'gap'=> 'required',
-        'notion_de_base'=> 'required',
-        'pretest_nb'=> 'required',
-        'moyenne_pre'=> 'required',
-
-        'post_test_nb'=> 'required',
-
-        'moyenne_pos'=> 'required',
-
-        'performance'=> 'required',
-        'pretest_acc'=> 'required',
-
-        'moyenne_pretest_acc'=> 'required',
-        'post_test_acc'=> 'required'    
+        'date_entrer'=> '',
+        'image'=> 'required'    
         ];
     }
 }

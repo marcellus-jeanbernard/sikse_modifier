@@ -227,71 +227,7 @@
 
                           @endforeach
                 
-<!-- 
-                <div class="col-md-3 col-sm-6 col-xs-12 column project-column wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1000ms">
-                    <article class="column-inner hvr-float-shadow">
-                        <figure class="image-box">
-                            <a href="#"><img src="images/resource/image-2.jpg" alt="" title="Volunteer"></a>
-                            <div class="icon-box"><a href="#" class="heart-icon img-circle"><span class="flaticon-favorite21"></span></a></div>
-                        </figure>
-                        <div class="lower-part">
-                            <div class="text">
-                                <h3>Help for education of kids</h3>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                            </div>
-                            <div class="proj-donation">
-                                <div class="info"><strong>Donation : </strong> $17,241 / $25,000</div>
-                                <div class="bar-outer">
-                                    <div class="bar-inner" data-don-total="25000" data-don-received="17241"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
- 
-                <div class="col-md-3 col-sm-6 col-xs-12 column project-column wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1000ms">
-                    <article class="column-inner hvr-float-shadow">
-                        <figure class="image-box">
-                            <a href="#"><img src="images/resource/image-3.jpg" alt="" title="Volunteer"></a>
-                            <div class="icon-box"><a href="#" class="heart-icon img-circle"><span class="flaticon-favorite21"></span></a></div>
-                        </figure>
-                        <div class="lower-part">
-                            <div class="text">
-                                <h3>Spend food in Ughanda</h3>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                            </div>
-                            <div class="proj-donation">
-                                <div class="info"><strong>Donation : </strong> $47241 / $50,000</div>
-                                <div class="bar-outer">
-                                    <div class="bar-inner" data-don-total="50000" data-don-received="47241"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div> -->
-                
-                <!--Project Column-->
-            <!--     <div class="col-md-3 col-sm-6 col-xs-12 column project-column wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1000ms">
-                    <article class="column-inner hvr-float-shadow">
-                        <figure class="image-box">
-                            <a href="#"><img src="images/resource/image-4.jpg" alt="" title="Volunteer"></a>
-                            <div class="icon-box"><a href="#" class="heart-icon img-circle"><span class="flaticon-favorite21"></span></a></div>
-                        </figure>
-                        <div class="lower-part">
-                            <div class="text">
-                                <h3>Spend for houses in Africa</h3>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                            </div>
-                            <div class="proj-donation">
-                                <div class="info"><strong>Donation : </strong> $37001 / $77,000</div>
-                                <div class="bar-outer">
-                                    <div class="bar-inner" data-don-total="77000" data-don-received="37001"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-             -->
+
             
             </div>
         </div>
@@ -569,16 +505,8 @@
 
 
     
-                            <iframe src="//www.zeno.fm/player/radio-marcellus-default-relay" width="575" height="240" frameborder="0" scrolling="no"></iframe><a href="https://www.zenomedia.com" target="_blank" style="display: block; font-size: 0.9em; line-height: 10px;">A Zeno Media Station</a>
     
     
-    <!--Map Section-->
-   
-
-   <!--  <section class="map-section">
-        <div class="map-container" id="map-location"></div>
-    </section>
-    --> 
     
     <!--Client Logos-->
     <section class="sponsors-section">

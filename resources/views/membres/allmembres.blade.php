@@ -20,14 +20,15 @@
                     </div>
                 </div>
     
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css ">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css ">
        
             </header>
             <section class="card">
                 <div class="card-block">
                     <table id="example" class="display table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
-                        <tr>
+                        <tr>   
+                               <th>photo</th>
                                <th>Code</th>
                             <th>Nom</th>
                             <th>Prenom</th>
@@ -36,12 +37,12 @@
 
                             <th>Adresse</th>
 
-                            <th>Ccpc</th>
+                            <th>Ccpc Commune</th>
                             <th>Fonction</th>
                             <th>Secteur Activite</th>
                             <th>phone</th>
                             <th>Sexe</th>
-                            <th>gap</th>
+                           
                             <th>Actions</th>
                             
 
@@ -51,6 +52,7 @@
                         </thead>
                         <tfoot>
                         <tr>
+                            <th>photo</th>
                              <th>Code</th>
                             <th>Nom</th>
                             <th>Prenom</th>
@@ -64,7 +66,7 @@
                             <th>Secteur Activite</th>
                             <th>phone</th>
                             <th>Sexe</th>
-                            <th>gap</th>
+                            
                             <th>Actions</th>
                             
                             
@@ -78,14 +80,22 @@
                         
                         @foreach ($membres as $membre)
          <tr>
-             <td>{{ $membre->code }}</td>
+              <td><img src="{{asset($membre->image)}}" height="35" width="30"></td>
+                        
+                            @if($membre->fonction->name == 'Coordonateur Executif')
+                          <td>{{ $membre->ccpccommune->adresse }}</td>
+                            @endif
 
              <td>{{ $membre->nom }}</td>
              <td>{{ $membre->prenom }}</td>
              <td>{{ $membre->email }}</td>
 
                <td>{{ $membre->address }}</td>
-                 <td>{{ $membre->ccpc->name }}</td>
+                
+                @if($membre->fonction->name == 'Coordonateur Executif')
+                 <td>{{ $membre->ccpccommune->name }}</td>
+                  @endif
+
                  <td>{{ $membre->fonction->name }}</td>
 
                  <td>{{ $membre->secteuractivite->name }}</td>
@@ -93,10 +103,10 @@
                    <td>{{ $membre->phone }}</td>
                    
                    <td>{{ $membre->sexe }}</td>
-                   <td>{{ $membre->gap }}</td>
+                
 
 
-
+                
 
   
          

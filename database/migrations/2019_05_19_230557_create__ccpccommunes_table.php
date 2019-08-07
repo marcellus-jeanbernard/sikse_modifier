@@ -21,9 +21,36 @@ class CreateCcpccommunesTable extends Migration
             $table->text('adresse');
            $table->string('telephone');
 
+           $table->string('nom_cordexecutif');
+           $table->string('prenom_cordexecutif');
+           $table->string('email_cordexecutif');
+           $table->string('adresse_cordexecutif');
+           $table->string('telephone_cordexecutif');
+           $table->string('image1');
+
+           $table->string('nom_cordlogistique');
+           $table->string('prenom_cordlogistique');
+           $table->string('email_cordlogistique');
+           $table->string('adresse_cordlogistique');
+           $table->string('telephone_cordlogistique');
+           $table->string('image2');
+
+
+           
+           
+
+
+
+
+
+
+           
+
             
             $table->integer('departement_id')->unsigned();
             $table->foreign('departement_id')->references('id')->on('departments');
+
+
 
 
             $table->timestamps();
